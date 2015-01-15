@@ -6,10 +6,8 @@ ircdkit is a toolkit for constructing special purpose IRC servers.  It is not a 
 [![NPM version](https://img.shields.io/npm/v/ircdkit.svg)](http://badge.fury.io/js/ircdkit)
 [![Licensed MIT](https://img.shields.io/npm/l/ircdkit.svg)](https://github.com/ChiperSoft/ircdkit/blob/master/LICENSE.txt)
 [![Nodejs 0.10+](https://img.shields.io/badge/node.js-%3E=_0.10-brightgreen.svg)](http://nodejs.org)
-[![Downloads](http://img.shields.io/npm/dm/ircdkit.svg)](http://npmjs.org/queryize)
-[![Build Status](https://img.shields.io/travis/ChiperSoft/ircdkit.svg)](https://travis-ci.org/ChiperSoft/ircdkit)
-[![Coverage Status](https://img.shields.io/coveralls/ChiperSoft/ircdkit.svg)](https://coveralls.io/r/ChiperSoft/ircdkit)
-[![Gittip](http://img.shields.io/gittip/chipersoft.svg)](https://www.gittip.com/chipersoft/)
+[![iojs 1.0.0+](https://img.shields.io/badge/io.js-%3E=_1.0.0-brightgreen.svg)](http://iojs.org)
+[![Downloads](http://img.shields.io/npm/dm/ircdkit.svg)](http://npmjs.org/ircdkit)
 
 ircdkit is *not* a fully functional IRC server.  A default configuration of ircdkit provides only the following:
 
@@ -208,7 +206,7 @@ Accepting the nickname will change the user's nickname and trigger a nick change
 
 ```js
 var irc = ircdkit({
-	validateAuthentication: function (connection, nickname, previous, accept, reject) {
+	validateNickname: function (connection, nickname, previous, accept, reject) {
 		Users.find({username: username}, function (err, user) {
 			if (err || !user) {
 				reject('Unknown account');
