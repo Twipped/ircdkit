@@ -20,7 +20,6 @@
   "author": "Jarvis Badgley <chiper@chipersoft.com> (http://chipersoft.com/)",
   "license": "MIT",
   "dependencies": {
-    "carrier": "^0.1.14",
     "debug": "^2.1.1",
     "proxmis": "^0.2.0",
     "split": "^0.3.2"
