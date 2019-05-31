@@ -1,6 +1,7 @@
 var ircdkit = require('../lib/index');
 var net = require('net');
 var split = require('split');
+var pkg = require('../package.json')
 
 exports['client basic login'] = function (test) {
 	test.expect(6);
@@ -11,7 +12,7 @@ exports['client basic login'] = function (test) {
 		console.error(err);
 	});
 
-	irc.listen(function () {
+	irc.listen(6000, '0.0.0.0', function () {
 
 		var port = irc._server.address().port;
 		test.ok(true, 'Listening');
@@ -59,7 +60,7 @@ exports['client custom login accepts'] = function (test) {
 		console.error(err);
 	});
 
-	irc.listen(function () {
+	irc.listen(6000, '0.0.0.0', function () {
 
 		var id;
 		var port = irc._server.address().port;
@@ -90,7 +91,7 @@ exports['client custom login accepts'] = function (test) {
 				receiver.once('data', function (line) {
 					test.equal(line, ':unknown.tld 003 User' + id + ' This server was created on 2015-12-01');
 					receiver.once('data', function (line) {
-						test.equal(line, ':unknown.tld 004 User' + id + ' ircdkit 1.0.0');
+						test.equal(line, ':unknown.tld 004 User' + id + ' ircdkit ' + pkg.version);
 
 						irc.close(function () {
 							test.ok(true, 'Closed');
@@ -122,7 +123,7 @@ exports['client custom login rejects'] = function (test) {
 		console.error(err);
 	});
 
-	irc.listen(function () {
+	irc.listen(6000, '0.0.0.0', function () {
 
 		var port = irc._server.address().port;
 		test.ok(true, 'Listening');
@@ -186,7 +187,7 @@ exports['client custom login waits for password and then accepts'] = function (t
 		console.error(err);
 	});
 
-	irc.listen(function () {
+	irc.listen(6000, '0.0.0.0', function () {
 
 		var id;
 		var port = irc._server.address().port;
@@ -218,7 +219,7 @@ exports['client custom login waits for password and then accepts'] = function (t
 				receiver.once('data', function (line) {
 					test.equal(line, ':unknown.tld 003 User' + id + ' This server was created on 2015-12-01');
 					receiver.once('data', function (line) {
-						test.equal(line, ':unknown.tld 004 User' + id + ' ircdkit 1.0.0');
+						test.equal(line, ':unknown.tld 004 User' + id + ' ircdkit ' + pkg.version);
 
 						irc.close(function () {
 							test.ok(true, 'Closed');
@@ -258,7 +259,7 @@ exports['client custom login waits for password and then rejects'] = function (t
 		console.error(err);
 	});
 
-	irc.listen(function () {
+	irc.listen(6000, '0.0.0.0', function () {
 
 		var port = irc._server.address().port;
 		test.ok(true, 'Listening');
@@ -320,7 +321,7 @@ exports['client custom login waits for password but times out'] = function (test
 		console.error(err);
 	});
 
-	irc.listen(function () {
+	irc.listen(6000, '0.0.0.0', function () {
 
 		var port = irc._server.address().port;
 		test.ok(true, 'Listening');
