@@ -18,7 +18,7 @@ ircdkit is *not* a fully functional IRC server.  A default configuration of ircd
 - User nickname changes and collision detection
 - Disconnect handling.
 
-##Example
+## Example
 
 ```js
 var ircdkit = require('ircdkit');
@@ -41,13 +41,13 @@ irc.on('connection', function (connection) {
 });
 ```
 
-##Installation
+## Installation
 
 NPM: `npm install ircdkit`
 
-##Usage
+## Usage
 
-###`ircdkit([options])`
+### `ircdkit([options])`
 
 Creates the base ircd server that will manage connections and system behavior.  Returns an ircdkit app object.
 
@@ -67,19 +67,19 @@ Optionally takes an object containing the default configuration options.
 | `validateNickname`       | Function to be called after receiving a nickname change or at initial login. Allows for rejection and/or override of nickname changes. See below for function signature and usage.     |        undefined       |
 | `maxNickLength`          | Maximum number of characters allowed in a nickname.                                                                                                                                    |            9           |
 
-###`app.listen(port, [address,] [callback])`
+### `app.listen(port, [address,] [callback])`
 
 Creates a socket server and tells it to listen on the specified port. The passed callback will be invoked once the server is successfully listening.
 
-###`app.config(key)`
+### `app.config(key)`
 
 Retrieves the configuration option defined by `key`.
 
-###`app.close([callback])`
+### `app.close([callback])`
 
 Tells the server to stop accepting new connections and closes any open connections.  Optional callback will be invoked once all connections have closed.
 
-###`app` Events
+### `app` Events
 
 The `app` object is a standard Node.js Event Emitter.
 
@@ -89,59 +89,59 @@ The `app` object is a standard Node.js Event Emitter.
 - **listening** (Arguments: port, boundAddress) Server is listening for connections.
 - **error** (Arguments: error, client) An error occurred. If the error originated from a specific client, the second argument will contain the client object.
 
-###`app.getConnection(id)`
+### `app.getConnection(id)`
 
 Gets a connection by its id.
 
-###`app.getConnection(key, value)`
+### `app.getConnection(key, value)`
 
 Gets the first connection which contains the property (defined as `key`) matching `value`.
 
-###`app.createConnection(nickname)`
+### `app.createConnection(nickname)`
 
 Creates a new connection object for local use, such as creating services, and attaches to the server. This connection will not have a socket attached to it and will not be registered with plugins.
 
-###`app.removeConnection(connection)`
+### `app.removeConnection(connection)`
 
 Removes the passed connection object from the server. This does not trigger any events and will not remove any connection with an active socket.
 
-###`app.handle`
+### `app.handle`
 
 If you wish to run your server on multiple ports, or with both public and secure connections, ircdkit exposes the connection handler function.  Use this in conjunction with the `net.createServer` or `tls.createServer` functions.
 
 Note, servers created this way must be closed separately from `app.close()`, as ircdkit will not know of their existence.
 
-###`connection.nickname`
+### `connection.nickname`
 
 Current nickname for the user.
 
-###`connection.username`
+### `connection.username`
 
 Username the user logged in with.
 
-###`connection.realname`
+### `connection.realname`
 
 User's real name as provided at login.
 
-###`connection.hostname`
+### `connection.hostname`
 
 Hostname for the user's connection.
 
-###`connection.mask`
+### `connection.mask`
 
 The full hostmask for the user. (eg: `nickname!username@hostname`)
 
-###`connection.send([asServer], data, ...)`
+### `connection.send([asServer], data, ...)`
 
 Sends data to the client.  Multiple arguments are joined with spaces.
 
 If the first argument is `true`, the connection will prefix the data with a colon and the server hostname, indicating it is a server message (the first argument after `true` should be an IRC reply code).
 
-###`connection.close([callback])`
+### `connection.close([callback])`
 
 Closes the connection, disconnecting the client.  If a callback is provided, it will be invoked once the connection is closed.
 
-###`connection` Events
+### `connection` Events
 
 The `connection` object is a standard Node.js Event Emitter.
 
@@ -162,7 +162,7 @@ connection.on('PRIVMSG', function (target, message) {
 });
 ```
 
-##User Validation
+## User Validation
 
 By default, ircdkit will accept any user you connects to the server and sends the USER command.  If you wish to authenticate user accounts, 
 you may do so by defining a `validateAuthentication` callback on the configuration options.  This callback will be invoked when the client
@@ -198,7 +198,7 @@ var irc = ircdkit({
 
 **NOTE**: If you define a validation function and do not call accept or reject, the connection will hang and eventually timeout.
 
-##Nickname Validation
+## Nickname Validation
 
 As with user accounts, nicknames may also be validated. This validation is invoked after the nickname has been checked for standard irc validations (length, valid characters, name collisions).
 
