@@ -4,7 +4,7 @@ ircdkit
 ircdkit is a toolkit for constructing special purpose IRC servers.  It is not a full implementation of [the various IRC RFC specifications](http://www.irchelp.org/irchelp/rfc/), but rather a pluggable framework for implementing your own IRC compatible servers, such as ZNC style bouncers or proxies to non-IRC chat services.
 
 [![NPM version](https://img.shields.io/npm/v/ircdkit.svg)](http://badge.fury.io/js/ircdkit)
-[![Licensed MIT](https://img.shields.io/npm/l/ircdkit.svg)](https://github.com/ChiperSoft/ircdkit/blob/master/LICENSE.txt)
+[![Licensed MIT](https://img.shields.io/npm/l/ircdkit.svg)](https://github.com/Twipped/ircdkit/blob/master/LICENSE.txt)
 [![Nodejs 0.10+](https://img.shields.io/badge/node.js-%3E=_0.10-brightgreen.svg)](http://nodejs.org)
 [![iojs 1.0.0+](https://img.shields.io/badge/io.js-%3E=_1.0.0-brightgreen.svg)](http://iojs.org)
 [![Downloads](http://img.shields.io/npm/dm/ircdkit.svg)](http://npmjs.org/ircdkit)
