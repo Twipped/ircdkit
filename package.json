@@ -20,9 +20,9 @@
   "author": "Jocelyn Badgley <joc@twipped.com> (http://twipped.com/)",
   "license": "MIT",
   "dependencies": {
-    "debug": "^2.1.1",
-    "proxmis": "^0.2.0",
-    "split": "^0.3.2"
+    "debug": "~4.1.1",
+    "proxmis": "~1.0.0",
+    "split": "~1.0.1"
   },
   "devDependencies": {
     "istanbul": "^0.3.5",
