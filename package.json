@@ -19,12 +19,12 @@
   "author": "Jocelyn Badgley <joc@twipped.com> (http://twipped.com/)",
   "license": "MIT",
   "dependencies": {
-    "debug": "^4.1.1",
+    "debug": "~4.3.1",
     "proxmis": "~1.0.0",
     "split": "^1.0.1"
   },
   "devDependencies": {
-    "nodeunit": "^0.9.0"
+    "nodeunit": "~0.11.3"
   },
   "files": [
     "lib",
