@@ -4,8 +4,7 @@
   "description": "A low-level framework for constructing IRC servers.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "istanbul cover nodeunit -- tests --reporter=minimal",
-    "test-travis": "istanbul cover nodeunit --reporter=lcov -- tests"
+    "test": "nodeunit tests --reporter=minimal"
   },
   "repository": {
     "type": "git",
@@ -20,12 +19,11 @@
   "author": "Jocelyn Badgley <joc@twipped.com> (http://twipped.com/)",
   "license": "MIT",
   "dependencies": {
-    "debug": "~4.1.1",
+    "debug": "^4.1.1",
     "proxmis": "~1.0.0",
-    "split": "~1.0.1"
+    "split": "^1.0.1"
   },
   "devDependencies": {
-    "istanbul": "^0.3.5",
     "nodeunit": "^0.9.0"
   },
   "files": [
