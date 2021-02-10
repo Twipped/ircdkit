@@ -1,6 +1,6 @@
 {
   "name": "ircdkit",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "A low-level framework for constructing IRC servers.",
   "main": "lib/index.js",
   "scripts": {
